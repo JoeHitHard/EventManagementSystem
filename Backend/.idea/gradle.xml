@@ -3,11 +3,27 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/as" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/as" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/ems" />
         <option name="gradleJvm" value="openjdk-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/ems" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/es" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/es" />
           </set>
         </option>
       </GradleProjectSettings>

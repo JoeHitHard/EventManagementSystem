@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+#  es:
+#    build:
+#      context: ./es
+#      dockerfile: Dockerfile
+#    depends_on:
+#      - postgres
+#    ports:
+#      - "8081:8081"
+#    networks:
+#      - ems-network
+
+  postgres:
+    build: .
+    image: postgres
+    container_name: postgresdb
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    networks:
+      - ems-network
+
+networks:
+  ems-network:
+    driver: bridge
