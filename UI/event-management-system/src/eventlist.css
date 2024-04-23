@@ -1,82 +1,71 @@
-.event-list-container {
+/* eventlist.css */
+
+/* Style for the main container */
+.eventlist-container {
     max-width: 800px;
     margin: 0 auto;
   }
   
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
+  /* Style for the table */
   table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
   }
   
-  th, td {
+  /* Style for table headers */
+  th {
+    background-color: #f2f2f2;
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
   }
   
-  th {
-    background-color: #f2f2f2;
+  /* Style for table cells */
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
   }
   
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  tr:hover {
-    background-color: #ddd;
-  }
-  
-  .actions button {
+  /* Style for buttons */
+  button {
     background-color: #4CAF50;
     color: white;
+    padding: 10px 20px;
     border: none;
-    padding: 8px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 4px;
+    margin-right: 5px;
   }
   
-  .actions button:hover {
+  button:hover {
     background-color: #45a049;
   }
   
-  .attendees-container {
-    margin-top: 20px;
-  }
-  
-  .attendees-container h2 {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .attendees-container table {
+  /* Style for form inputs */
+  input[type="text"],
+  input[type="datetime-local"],
+  input[type="password"] {
     width: 100%;
-    border-collapse: collapse;
+    padding: 10px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
   
-  .attendees-container th, .attendees-container td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+  /* Style for form submit button */
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
   
-  .attendees-container th {
-    background-color: #f2f2f2;
-  }
-  
-  .attendees-container tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .attendees-container tr:hover {
-    background-color: #ddd;
+  input[type="submit"]:hover {
+    background-color: #45a049;
   }
   
