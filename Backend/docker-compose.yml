@@ -1,16 +1,27 @@
 version: '3.8'
 
 services:
-#  es:
-#    build:
-#      context: ./es
-#      dockerfile: Dockerfile
-#    depends_on:
-#      - postgres
-#    ports:
-#      - "8081:8081"
-#    networks:
-#      - ems-network
+  as:
+    build:
+      context: ./as
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8081"
+    networks:
+      - ems-network
+
+  es:
+    build:
+      context: ./es
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - "8082:8082"
+    networks:
+      - ems-network
 
   postgres:
     build: .

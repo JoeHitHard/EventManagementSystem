@@ -18,7 +18,11 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'org.postgresql:postgresql'
+	implementation 'com.add.project:ems:0.0.1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.json:json:20231013'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation("com.github.javafaker:javafaker:1.0.2"){ exclude module : "snakeyaml" }
 }
 
 tasks.named('test') {

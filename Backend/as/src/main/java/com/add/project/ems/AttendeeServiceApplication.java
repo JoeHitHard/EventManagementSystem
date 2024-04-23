@@ -1,13 +1,13 @@
-package com.add.project.es;
+package com.add.project.ems;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EventServiceApplication {
+public class AttendeeServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EventServiceApplication.class, args);
+		SpringApplication.run(AttendeeServiceApplication.class, args);
 	}
 
 }

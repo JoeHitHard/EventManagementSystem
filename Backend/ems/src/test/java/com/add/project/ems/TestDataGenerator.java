@@ -31,8 +31,13 @@ public class TestDataGenerator implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
+        eventAccess.deleteAll();
+        attendeeAccess.deleteAll();
         generateTestData();
         generateTestData(eventAccess.findAll());
+//        System.out.println(eventAccess.findById("70cc3334-6b57-45eb-804a-46c4d0003be7"));
+//        System.out.println(eventAccess.findAll());
+//        System.out.println(eventAccess.findAll().size());
     }
 
     private void generateTestData() {
@@ -45,6 +50,7 @@ public class TestDataGenerator implements CommandLineRunner {
             event.setOwnerName(faker.name().fullName());
             event.setOwnerEmail(faker.internet().emailAddress());
             event.setEventAddress(faker.address().fullAddress());
+            event.setPassword("wow");
             eventAccess.save(event);
         }
     }

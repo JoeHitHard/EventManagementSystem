@@ -3,10 +3,22 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/ems" name="ems">
+                <projects>
+                  <project path="$PROJECT_DIR$/ems" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$/as" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/as" />
+            <option value="$PROJECT_DIR$/ems" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -20,9 +32,21 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/ems" name="ems">
+                <projects>
+                  <project path="$PROJECT_DIR$/ems" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$/es" />
         <option name="modules">
           <set>
+            <option value="$PROJECT_DIR$/ems" />
             <option value="$PROJECT_DIR$/es" />
           </set>
         </option>

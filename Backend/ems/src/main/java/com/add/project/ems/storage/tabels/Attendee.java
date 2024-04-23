@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.StringJoiner;
 
 @Entity
 @Table(name = "attendee")
@@ -73,5 +74,14 @@ public class Attendee {
 
     public void setEvents(Set<Event> events) {
         this.events = events;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Attendee.class.getSimpleName() + "[", "]")
+                .add("attendeeId='" + attendeeId + "'")
+                .add("name='" + name + "'")
+                .add("email='" + email + "'")
+                .toString();
     }
 }
