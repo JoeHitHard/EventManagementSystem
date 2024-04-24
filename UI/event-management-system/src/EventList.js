@@ -11,6 +11,24 @@ function EventList() {
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [showAttendees, setShowAttendees] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [showEditForm, setShowEditForm] = useState(null);
+  const [activeEvent, setActiveEvent] = useState(null);
+  const handleToggleEditForm = (event) => {
+      setShowEditForm(true);
+      event.eventTime = new Date(event.eventTime * 1000).toISOString().slice(0,16);;
+      setActiveEvent(event);
+    };
+    const handleEditEvent = (eventData) => {
+      eventData.eventTime = new Date(eventData.eventTime).getTime() / 1000;
+      axios.put(`http://localhost:8082/events/${activeEvent.eventId}`, eventData)
+        .then(response => {
+          window.location.reload();
+        })
+        .catch(error => {
+          console.error('Error creating event:', error);
+        });
+    };
+  
 
   useEffect(() => {
     fetchEvents();
@@ -61,8 +79,15 @@ function EventList() {
 
       <EventTable
         events={events}
+        handleToggleEditForm={handleToggleEditForm}
         onShowAttendees={handleShowAttendees}
       />
+
+      {showEditForm && (
+        <CreateEventForm 
+        eventData={activeEvent}
+        onCreateEvent={handleEditEvent} />
+      )}
 
       {showAttendees && (
         <AttendeeList

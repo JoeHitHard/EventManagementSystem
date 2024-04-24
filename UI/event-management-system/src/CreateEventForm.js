@@ -35,7 +35,7 @@ function CreateEventForm({ eventData, onCreateEvent, onClose }) {
     // Use different function for editing an existing event
     if (eventData) {
       // Pass the updated event data to the parent component for handling
-      onCreateEvent(eventData.eventId, formData);
+      onCreateEvent(formData);
     } else {
       // For creating a new event
       onCreateEvent(formData);

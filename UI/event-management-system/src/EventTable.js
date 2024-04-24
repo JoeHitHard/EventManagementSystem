@@ -1,29 +1,13 @@
 // EventTable.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import CreateEventForm from './CreateEventForm';
 
 
-function EventTable({ events, onShowAttendees, setEvents }) {
+function EventTable({ events, onShowAttendees, setEvents, handleToggleEditForm }) {
     const [showPasswordInput, setShowPasswordInput] = useState(false);
     const [password, setPassword] = useState('');
     const [activeEvent, setActiveEvent] = useState(null);
-    const [showEditForm, setShowEditForm] = useState(null);
-    const handleToggleEditForm = (event) => {
-        setShowEditForm(true);
-        setActiveEvent(event);
-      };
 
-  const handleEditEvent = (eventData) => {
-    eventData.eventTime = new Date(eventData.eventTime).getTime() / 1000;
-    axios.put(`http://localhost:8082/events/${activeEvent.eventId}`, eventData)
-      .then(response => {
-        window.location.reload();
-      })
-      .catch(error => {
-        console.error('Error creating event:', error);
-      });
-  };
 
     const handleDeleteClick = (eventId) => {
         setShowPasswordInput(true);
@@ -56,7 +40,6 @@ function EventTable({ events, onShowAttendees, setEvents }) {
           });
       };
   return (
-    <div>
         <table>
       <thead>
         <tr>
@@ -76,7 +59,7 @@ function EventTable({ events, onShowAttendees, setEvents }) {
             <td>{event.ownerName}</td>
             <td>
               <button onClick={() => onShowAttendees(event)}>Show Attendees</button>
-              <button onClick={handleToggleEditForm}>Edit Event</button>
+              <button onClick={() => handleToggleEditForm(event)}>Edit Event</button>
               {!(showPasswordInput && event.eventId === activeEvent.eventId) && <button onClick={() => handleDeleteClick(event)}>Delete</button>}
                 {showPasswordInput && event.eventId === activeEvent.eventId && (
                   <input
@@ -86,7 +69,7 @@ function EventTable({ events, onShowAttendees, setEvents }) {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 )}
-                {showPasswordInput && event.eventId === activeEvent && (
+                {showPasswordInput && event.eventId === activeEvent.eventId && (
                   <button onClick={handleDeleteEvent}>Confirm Delete</button>
                 )}
             </td>
@@ -94,12 +77,6 @@ function EventTable({ events, onShowAttendees, setEvents }) {
         ))}
       </tbody>
     </table>
-      {showEditForm && (
-        <CreateEventForm 
-        eventData={activeEvent}
-        onCreateEvent={handleEditEvent} />
-      )}
-    </div>
   );
 }
 
